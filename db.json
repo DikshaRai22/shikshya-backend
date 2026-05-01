@@ -1,0 +1,191 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Traditional Nepali Doko Bag",
+      "price": 2500,
+      "originalPrice": 3000,
+      "category": "Traditional",
+      "description": "Handwoven bamboo bag used by farmers in Nepal. Perfect for rustic decor and carrying groceries.",
+      "imageUrl": "/uploads/doko-bag.jpg",
+      "stock": 15,
+      "badge": "Best Seller",
+      "rating": 4.8,
+      "createdAt": "2026-05-01T05:47:43.717Z"
+    },
+    {
+      "id": 2,
+      "name": "Hemp Organic Tote",
+      "price": 1800,
+      "originalPrice": 2200,
+      "category": "Eco-friendly",
+      "description": "Durable hemp fiber tote bag, handcrafted in Kathmandu. Eco-friendly and stylish.",
+      "imageUrl": "/uploads/hemp-tote.jpg",
+      "stock": 25,
+      "badge": "New Arrival",
+      "rating": 4.5,
+      "createdAt": "2026-05-01T05:47:43.721Z"
+    },
+    {
+      "id": 3,
+      "name": "Pashmina Wool Clutch",
+      "price": 3500,
+      "originalPrice": 4500,
+      "category": "Premium",
+      "description": "Luxurious pashmina wool clutch with traditional Nepali patterns. Perfect for evening outings.",
+      "imageUrl": "/uploads/pashmina-clutch.jpg",
+      "stock": 8,
+      "badge": "Limited Stock",
+      "rating": 4.9,
+      "createdAt": "2026-05-01T05:47:43.721Z"
+    },
+    {
+      "id": 4,
+      "name": "Khukuri Backpack",
+      "price": 4200,
+      "originalPrice": 5000,
+      "category": "Adventure",
+      "description": "Rugged backpack inspired by the famous Khukuri knife. Canvas and leather construction.",
+      "imageUrl": "/uploads/khukuri-backpack.jpg",
+      "stock": 12,
+      "badge": "",
+      "rating": 4.7,
+      "createdAt": "2026-05-01T05:47:43.721Z"
+    },
+    {
+      "id": 5,
+      "name": "Everest Trek Daypack",
+      "price": 3200,
+      "originalPrice": 3800,
+      "category": "Adventure",
+      "description": "Lightweight daypack perfect for Everest Base Camp treks. Hydration compatible.",
+      "imageUrl": "/uploads/everest-daypack.jpg",
+      "stock": 20,
+      "badge": "Best Seller",
+      "rating": 4.6,
+      "createdAt": "2026-05-01T05:47:43.721Z"
+    },
+    {
+      "id": 6,
+      "name": "Mandala Print Canvas Bag",
+      "price": 1500,
+      "originalPrice": 1800,
+      "category": "Casual",
+      "description": "Colorful canvas bag with mandala prints. Cotton lining and zipper closure.",
+      "imageUrl": "/uploads/whatsapp-image-2025-11-27-at-23-11-46-8456b29c-1777618113271-68859634.jpg",
+      "stock": 30,
+      "badge": "",
+      "rating": 4.4,
+      "createdAt": "2026-05-01T05:47:43.721Z",
+      "updatedAt": "2026-05-01T06:48:33.275Z"
+    },
+    {
+      "id": 7,
+      "name": "DIyako jutta",
+      "price": 600,
+      "originalPrice": null,
+      "category": "Casual",
+      "description": "",
+      "imageUrl": "/uploads/diya-1777620539061.jpg",
+      "stock": 1,
+      "badge": "Limited Stock",
+      "rating": null,
+      "createdAt": "2026-05-01T05:58:25.215Z",
+      "updatedAt": "2026-05-01T07:28:59.068Z"
+    }
+  ],
+  "categories": [
+    "Traditional",
+    "Eco-friendly",
+    "Premium",
+    "Adventure",
+    "Casual",
+    "long lasting"
+  ],
+  "orders": [
+    {
+      "id": "ORD001",
+      "customerName": "Ramesh Adhikari",
+      "phone": "9812345678",
+      "items": [
+        {
+          "id": 1,
+          "name": "Traditional Nepali Doko Bag",
+          "quantity": 1,
+          "price": 2500
+        }
+      ],
+      "total": 2500,
+      "paymentMethod": "Cash on Delivery",
+      "status": "Delivered",
+      "date": "2026-05-01T05:47:43.721Z"
+    },
+    {
+      "id": "ORD002",
+      "customerName": "Sita Gurung",
+      "phone": "9845678901",
+      "items": [
+        {
+          "id": 2,
+          "name": "Hemp Organic Tote",
+          "quantity": 2,
+          "price": 1800
+        }
+      ],
+      "total": 3600,
+      "paymentMethod": "Esewa",
+      "status": "Confirmed",
+      "date": "2026-05-01T05:47:43.721Z"
+    },
+    {
+      "id": "c82f634d-2a02-428b-b11e-067fe6e73eb6",
+      "orderNumber": "SKY-1003",
+      "customerName": "Sita",
+      "phone": "9817963127",
+      "address": "Ilam",
+      "items": [
+        {
+          "productId": 7,
+          "productName": "DIyako jutta",
+          "price": 600,
+          "quantity": 1,
+          "itemTotal": 600,
+          "image": "http://localhost:3000/uploads/diya-1777615105203-513337029.jpg"
+        }
+      ],
+      "subtotal": 600,
+      "shippingCharge": 120,
+      "total": 720,
+      "paymentMethod": "COD",
+      "status": "Pending",
+      "whatsappSent": true,
+      "note": "",
+      "createdAt": "2026-05-01T06:23:36.975Z"
+    },
+    {
+      "id": "63e59ae6-4e5e-4034-baf0-eea2ccf0fe13",
+      "orderNumber": "SKY-1004",
+      "customerName": "Sita",
+      "phone": "9817963127",
+      "address": "Ilam",
+      "items": [
+        {
+          "productId": 7,
+          "productName": "DIyako jutta",
+          "price": 600,
+          "quantity": 1,
+          "itemTotal": 600,
+          "image": "http://localhost:3000/uploads/diya-1777615105203-513337029.jpg"
+        }
+      ],
+      "subtotal": 600,
+      "shippingCharge": 120,
+      "total": 720,
+      "paymentMethod": "COD",
+      "status": "Pending",
+      "whatsappSent": true,
+      "note": "",
+      "createdAt": "2026-05-01T06:24:37.634Z"
+    }
+  ]
+}
