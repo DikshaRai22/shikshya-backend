@@ -52,20 +52,41 @@ app.use(
         ],
         fontSrc: ["'self'", "https:", "data:"],
         imgSrc: ["'self'", "data:", "https:", "http://localhost:3000"],
-        connectSrc: ["'self'", "http://localhost:3000"],
+       connectSrc: [
+ "'self'",
+ "http://localhost:3000",
+ "https://selfless-caring-production.up.railway.app"
+],
       },
     },
   }),
 );
 
 // ========== CORS CONFIGURATION ==========
-const corsOptions = {
-  origin: FRONTEND_URL === "*" ? "*" : FRONTEND_URL.split(","),
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "x-admin-token", "Authorization"],
-  credentials: true,
-};
-app.use(cors(corsOptions));
+const allowedOrigins = [
+  "http://127.0.0.1:5500",
+  "http://localhost:5500",
+  "http://localhost:3000",
+  "https://yourfrontend.vercel.app",
+  "https://yourdomain.com"
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS blocked"));
+    }
+  },
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","x-admin-token","Authorization"],
+  credentials: true
+}));
+
+app.options("*", cors());
 
 // ========== BODY PARSERS ==========
 app.use(express.json());
@@ -658,11 +679,13 @@ app.post(
         db.products.length > 0
           ? Math.max(...db.products.map((p) => p.id)) + 1
           : 1;
-      let imageUrl = null;
-      if (req.file)
-        imageUrl = isCloudinaryConfigured
-          ? req.file.path
-          : `/uploads/${req.file.filename}`;
+     let imageUrl = null;
+
+if (req.file) {
+  imageUrl = isCloudinaryConfigured
+    ? req.file.path
+    : `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+}
 
       const newProduct = {
         id: newId,
@@ -726,9 +749,9 @@ app.put(
               .destroy(publicId)
               .catch((e) => console.log("Delete failed:", e));
         }
-        imageUrl = isCloudinaryConfigured
-          ? req.file.path
-          : `/uploads/${req.file.filename}`;
+       imageUrl = isCloudinaryConfigured
+  ? req.file.path
+  : `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
       }
 
       db.products[idx] = {
@@ -813,11 +836,11 @@ app.post("/api/categories", adminAuth, (req, res) => {
 app.post("/api/upload", adminAuth, upload.single("image"), (req, res) => {
   if (!req.file) return res.status(400).json({ error: "No file uploaded" });
   res.json({
-    success: true,
-    imageUrl: isCloudinaryConfigured
-      ? req.file.path
-      : `/uploads/${req.file.filename}`,
-  });
+  success: true,
+  imageUrl: isCloudinaryConfigured
+    ? req.file.path
+    : `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
+});
 });
 
 app.post("/api/admin/login", (req, res) => {
